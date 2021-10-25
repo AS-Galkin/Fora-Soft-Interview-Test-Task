@@ -13,7 +13,7 @@ enum Search {
   enum Model {
     struct Request {
       enum RequestType {
-        case some
+          case getAlbums
       }
     }
     struct Response {
