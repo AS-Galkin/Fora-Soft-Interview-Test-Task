@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        interactor?.makeRequest(request: .getAlbums)
+        interactor?.makeRequest(request: .getAlbums(searchTerm: "30 Seconds to mars"))
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {

@@ -11,6 +11,7 @@
 		68A0D293B26B1E40C7A07B88 /* Pods_App_TestGroup_ForaSoftInterviewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947C06B66B26D044F4598B7B /* Pods_App_TestGroup_ForaSoftInterviewTests.framework */; };
 		94799BCC272700F900E93D75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCB272700F900E93D75 /* MainTabBarController.swift */; };
 		94799BCE2727087900E93D75 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */; };
+		94799BD427273B9700E93D75 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD327273B9700E93D75 /* Extensions.swift */; };
 		94C15EAB2726F23B007490FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EAA2726F23B007490FE /* AppDelegate.swift */; };
 		94C15EAD2726F23B007490FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EAC2726F23B007490FE /* SceneDelegate.swift */; };
 		94C15EAF2726F23B007490FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EAE2726F23B007490FE /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		8E530D76D746943CE3FD9BBE /* Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig"; path = "Target Support Files/Pods-App-TestGroup-ForaSoftInterviewTests/Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94799BCB272700F900E93D75 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		94799BD327273B9700E93D75 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		947C06B66B26D044F4598B7B /* Pods_App_TestGroup_ForaSoftInterviewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_TestGroup_ForaSoftInterviewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C15EA72726F23B007490FE /* ForaSoftInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForaSoftInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C15EAA2726F23B007490FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */,
+				94799BD327273B9700E93D75 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				94C15EAB2726F23B007490FE /* AppDelegate.swift in Sources */,
 				94C15EE32726F293007490FE /* SearchPresenter.swift in Sources */,
 				94C15EAD2726F23B007490FE /* SceneDelegate.swift in Sources */,
+				94799BD427273B9700E93D75 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

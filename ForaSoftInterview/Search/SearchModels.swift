@@ -13,12 +13,13 @@ enum Search {
   enum Model {
     struct Request {
       enum RequestType {
-          case getAlbums
+          case getAlbums(searchTerm: String)
       }
     }
     struct Response {
       enum ResponseType {
-        case some
+          case presentAlbums(responseTerm: SearchResponse<Album>?)
+          case pres
       }
     }
     struct ViewModel {

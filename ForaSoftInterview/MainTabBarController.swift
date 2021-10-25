@@ -9,16 +9,24 @@ import UIKit
 import Alamofire
 
 class MainTabBarController: UITabBarController {
-
+    let searchVC = SearchViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.backgroundColor = .gray
-        let serchVC = SearchViewController()
-        serchVC.navigationItem.title = "Search"
-        let navVcC = UINavigationController(rootViewController: serchVC)
-        navVcC.navigationBar.prefersLargeTitles = true
-        navVcC.navigationBar.backgroundColor = .gray
-        navVcC.tabBarItem.title = "Search"
-        self.viewControllers = [navVcC]
+        self.tabBar.backgroundColor = .tabAndNavBarColor
+        self.viewControllers = [
+            generateVC(rootViewController: searchVC, title: "Search", image: #imageLiteral(resourceName: "search"))
+        ]
+        self.tabBar.tintColor = #colorLiteral(red: 0.9369474649, green: 0.3679848909, blue: 0.426604867, alpha: 1)
+    }
+    
+    private func generateVC(rootViewController: UIViewController, title: String, image: UIImage) -> UINavigationController {
+        let navVC = UINavigationController(rootViewController: rootViewController)
+        rootViewController.navigationItem.title = title
+        navVC.navigationBar.prefersLargeTitles = true
+        navVC.navigationBar.backgroundColor = .systemBackground
+        navVC.tabBarItem.title = title
+        navVC.tabBarItem.image = image
+        return navVC
     }
 }
