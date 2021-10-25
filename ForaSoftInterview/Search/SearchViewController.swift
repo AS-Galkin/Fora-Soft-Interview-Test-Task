@@ -43,16 +43,13 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         router.viewController     = viewController
     }
     
-    // MARK: Routing
-    
-    
-    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         interactor?.makeRequest(request: .getAlbums(searchTerm: "30 Seconds to mars"))
+        interactor?.makeRequest(request: .getTracks(searchTerm: "1440839028"))
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {

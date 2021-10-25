@@ -13,6 +13,7 @@ enum iTunesApiEntity: String {
     case musicTrack
     case album
     case musicVideo
+    case song
 }
 
 enum iTunesApiURLs: String {
