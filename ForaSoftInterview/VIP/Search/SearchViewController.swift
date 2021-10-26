@@ -23,6 +23,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
             albumCollectionView.reloadData()
         }
     }
+    let sectionInsets = UIEdgeInsets(top: 16.0, left: 17, bottom: 20.0, right: 17.0)
+    let itemsPerRow = 2.0
+    let minimalSpacing = 15.0
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -58,17 +62,9 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        albumCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
-        albumCollectionView.register(AlbumCollectionViewCell.nib, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
-        albumCollectionView.backgroundColor = .white
-        albumCollectionView.delegate = self
-        albumCollectionView.dataSource = self
+        albumCollectionView = generateCollectionView()
         self.view.addSubview(albumCollectionView)
-        let search = UISearchController()
-        search.searchBar.delegate = self
-        search.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = search
-        navigationItem.hidesSearchBarWhenScrolling = true
+        setupNavItemSearchVC()
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
@@ -76,9 +72,26 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         case .displayAlbums(let result):
             albumCellViewModel = result
             break
-        case .dislayTracks(let result):
+        @unknown default:
             break
         }
+    }
+    
+    private func setupNavItemSearchVC() {
+        let search = UISearchController()
+        search.searchBar.delegate = self
+        search.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
+    private func generateCollectionView() -> UICollectionView {
+        let collection = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
+        collection.register(AlbumCollectionViewCell.nib, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
+        collection.backgroundColor = .white
+        collection.delegate = self
+        collection.dataSource = self
+        return collection
     }
     
 }
@@ -115,9 +128,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sectionInsets = UIEdgeInsets(top: 16.0, left: 15.0, bottom: 20.0, right: 15.0)
-        let itemsPerRow = 2
-        let minimalSpacing = 10
         let padding = sectionInsets.left + sectionInsets.right + CGFloat(minimalSpacing * (itemsPerRow - 1))
         let availableWidth = collectionView.bounds.width - padding
         let widthPerItem = Int(availableWidth) / itemsPerRow
@@ -133,13 +143,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return CGFloat(minimalSpacing)
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 8, left: 15, bottom: 8, right: 15)
+        return sectionInsets
     }
 }
 

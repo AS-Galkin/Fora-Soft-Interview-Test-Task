@@ -19,12 +19,6 @@ protocol ItunesModelProtocol: Decodable {
     var artistName: String? { get set }
 }
 
-struct SearchResponse<T: Decodable>: Decodable {
-    var resultCount: Int?
-    
-    var results: [T]?
-}
-
 struct Album: ItunesModelProtocol {
     var artistId: Int?
     
@@ -55,4 +49,10 @@ struct Track: ItunesModelProtocol {
     var trackName: String?
     
     var artistName: String?
+}
+
+struct SearchResponse<T: Decodable>: Decodable {
+    var resultCount: Int?
+    
+    var results: [T]?
 }

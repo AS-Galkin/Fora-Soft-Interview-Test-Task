@@ -14,19 +14,16 @@ enum Search {
     struct Request {
       enum RequestType {
           case getAlbums(searchTerm: String)
-          case getTracks(searchTerm: String)
       }
     }
     struct Response {
       enum ResponseType {
           case presentAlbums(responseTerm: SearchResponse<Album>?)
-          case presentTracks(responseTerm: SearchResponse<Track>?)
       }
     }
     struct ViewModel {
       enum ViewModelData {
           case displayAlbums(albumViewModel: AlbumViewModel)
-          case dislayTracks(trackViewModel: TrackViewModel)
       }
     }
   }
@@ -43,10 +40,3 @@ struct AlbumViewModel {
     var cells: [Album]
 }
 
-struct TrackViewModel {
-    struct Track {
-        
-    }
-    
-    var cells: [Track]
-}

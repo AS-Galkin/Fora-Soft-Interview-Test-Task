@@ -9,13 +9,15 @@
 import UIKit
 
 protocol SearchRoutingLogic {
-
+    func routeToDetailViewController(idCollection: Int)
 }
 
 class SearchRouter: NSObject, SearchRoutingLogic {
-
-  weak var viewController: SearchViewController?
-  
-  // MARK: Routing
-  
+    
+    weak var viewController: SearchViewController?
+    
+    // MARK: Routing
+    func routeToDetailViewController(idCollection: Int) {
+        
+    }
 }

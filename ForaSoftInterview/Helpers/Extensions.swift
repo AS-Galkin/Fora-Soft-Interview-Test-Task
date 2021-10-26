@@ -14,5 +14,5 @@ extension UIColor {
 
 //MARK: - Extension UIFont
 extension UIFont {
-    static let avenir20 = UIFont(name: "avenir", size: 20)
+    static let avenir20 = UIFont(name: "avenir", size: 17)
 }

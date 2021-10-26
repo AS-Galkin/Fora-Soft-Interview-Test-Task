@@ -25,9 +25,6 @@ class SearchPresenter: SearchPresentationLogic {
             let viewModel = AlbumViewModel.init(cells: cells)
             viewController?.displayData(viewModel: .displayAlbums(albumViewModel: viewModel))
             break
-        case .presentTracks(let response):
-            print(response)
-            break
         @unknown default:
             break
             
