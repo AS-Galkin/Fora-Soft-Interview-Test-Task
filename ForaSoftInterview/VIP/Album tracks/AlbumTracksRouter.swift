@@ -1,5 +1,5 @@
 //
-//  DetailRouter.swift
+//  AlbumTracksRouter.swift
 //  ForaSoftInterview
 //
 //  Created by Александр Галкин on 26.10.2021.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol DetailRoutingLogic {
+protocol AlbumTracksRoutingLogic {
 
 }
 
-class DetailRouter: NSObject, DetailRoutingLogic {
+class AlbumTracksRouter: NSObject, AlbumTracksRoutingLogic {
 
-  weak var viewController: DetailViewController?
+  weak var viewController: AlbumTracksViewController?
   
   // MARK: Routing
   

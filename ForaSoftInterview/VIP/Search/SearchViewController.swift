@@ -14,17 +14,25 @@ protocol SearchDisplayLogic: AnyObject {
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
     
+    //MARK: - Variabels
     var interactor: SearchBusinessLogic?
+    
     var router: (NSObjectProtocol & SearchRoutingLogic)?
+    
     var timer: Timer?
+    
     var albumCollectionView: UICollectionView!
+    
     private var albumCellViewModel: AlbumViewModel = AlbumViewModel(cells: []) {
         didSet {
             albumCollectionView.reloadData()
         }
     }
+    
     let sectionInsets = UIEdgeInsets(top: 16.0, left: 17, bottom: 20.0, right: 17.0)
+    
     let itemsPerRow = 2.0
+    
     let minimalSpacing = 15.0
     
     // MARK: Object lifecycle
@@ -96,6 +104,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
 }
 
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -112,8 +121,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         return cell
     }
+    
+    //MARK: - Routing
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let id = albumCellViewModel.cells[indexPath.row].albumId {
+            router?.routeToDetailViewController(idCollection: id)
+        }
+    }
 }
 
+//MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
@@ -124,13 +141,14 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding = sectionInsets.left + sectionInsets.right + CGFloat(minimalSpacing * (itemsPerRow - 1))
         let availableWidth = collectionView.bounds.width - padding
-        let widthPerItem = Int(availableWidth) / itemsPerRow
+        let widthPerItem = Double(availableWidth) / itemsPerRow
         return CGSize(width: widthPerItem, height: widthPerItem + 50)
     }
         

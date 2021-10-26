@@ -19,7 +19,7 @@ class SearchPresenter: SearchPresentationLogic {
         switch response {
         case .presentAlbums(let response):
             guard let cells = response?.results?.map({ album -> AlbumViewModel.Album in
-                return AlbumViewModel.Album.init(imageUrl: album.artworkUrl100, artistName: album.artistName, albumName: album.collectionName)
+                return AlbumViewModel.Album.init(imageUrl: album.artworkUrl100, artistName: album.artistName, albumName: album.collectionName, albumId: album.collectionId)
             }) else { return }
             
             let viewModel = AlbumViewModel.init(cells: cells)

@@ -35,6 +35,7 @@ struct AlbumViewModel {
         var imageUrl: String?
         var artistName: String?
         var albumName: String?
+        var albumId: Int?
     }
     
     var cells: [Album]

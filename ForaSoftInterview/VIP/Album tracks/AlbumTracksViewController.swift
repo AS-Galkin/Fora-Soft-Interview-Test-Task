@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  AlbumTracksViewController.swift
 //  ForaSoftInterview
 //
 //  Created by Александр Галкин on 26.10.2021.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DetailDisplayLogic: class {
-  func displayData(viewModel: Detail.Model.ViewModel.ViewModelData)
+protocol AlbumTracksDisplayLogic: class {
+  func displayData(viewModel: AlbumTracks.Model.ViewModel.ViewModelData)
 }
 
-class DetailViewController: UIViewController, DetailDisplayLogic {
+class AlbumTracksViewController: UIViewController, AlbumTracksDisplayLogic {
 
-  var interactor: DetailBusinessLogic?
-  var router: (NSObjectProtocol & DetailRoutingLogic)?
+  var interactor: AlbumTracksBusinessLogic?
+  var router: (NSObjectProtocol & AlbumTracksRoutingLogic)?
 
   // MARK: Object lifecycle
   
@@ -33,9 +33,9 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
   
   private func setup() {
     let viewController        = self
-    let interactor            = DetailInteractor()
-    let presenter             = DetailPresenter()
-    let router                = DetailRouter()
+    let interactor            = AlbumTracksInteractor()
+    let presenter             = AlbumTracksPresenter()
+    let router                = AlbumTracksRouter()
     viewController.interactor = interactor
     viewController.router     = router
     interactor.presenter      = presenter
@@ -53,7 +53,7 @@ class DetailViewController: UIViewController, DetailDisplayLogic {
     super.viewDidLoad()
   }
   
-  func displayData(viewModel: Detail.Model.ViewModel.ViewModelData) {
+  func displayData(viewModel: AlbumTracks.Model.ViewModel.ViewModelData) {
 
   }
   

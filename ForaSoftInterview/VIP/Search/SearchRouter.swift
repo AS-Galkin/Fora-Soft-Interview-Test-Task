@@ -18,6 +18,7 @@ class SearchRouter: NSObject, SearchRoutingLogic {
     
     // MARK: Routing
     func routeToDetailViewController(idCollection: Int) {
-        
+        let detailVC = TrackViewController()
+        viewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

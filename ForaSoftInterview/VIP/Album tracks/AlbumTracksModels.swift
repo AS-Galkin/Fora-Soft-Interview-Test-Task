@@ -1,5 +1,5 @@
 //
-//  DetailModels.swift
+//  AlbumTracksModels.swift
 //  ForaSoftInterview
 //
 //  Created by Александр Галкин on 26.10.2021.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-enum Detail {
+enum AlbumTracks {
    
   enum Model {
     struct Request {
       enum RequestType {
-          case getTacks(lookupTerm: String)
+          case getTracks(lookupTerm: String)
       }
     }
     struct Response {
       enum ResponseType {
-          case presentTracks(responseTerm: SearchResponse<Track>?)
+          case presentTracks(response: SearchResponse<Track>)
       }
     }
     struct ViewModel {
