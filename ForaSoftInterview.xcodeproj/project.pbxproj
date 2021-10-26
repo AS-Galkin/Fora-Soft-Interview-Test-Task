@@ -20,7 +20,6 @@
 		947C7B5D2727E54D002986FD /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B562727E54D002986FD /* HistoryModels.swift */; };
 		947C7B5E2727E54D002986FD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B572727E54D002986FD /* HistoryViewController.swift */; };
 		947C7B5F2727E54D002986FD /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B582727E54D002986FD /* HistoryInteractor.swift */; };
-		947C7B602727E54D002986FD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947C7B592727E54D002986FD /* HistoryViewController.xib */; };
 		947C7B7D2727F0AF002986FD /* AlbumTracksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B762727F0AF002986FD /* AlbumTracksPresenter.swift */; };
 		947C7B7F2727F0AF002986FD /* AlbumTracksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B782727F0AF002986FD /* AlbumTracksRouter.swift */; };
 		947C7B802727F0AF002986FD /* AlbumTracksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B792727F0AF002986FD /* AlbumTracksModels.swift */; };
@@ -66,7 +65,6 @@
 		947C7B562727E54D002986FD /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
 		947C7B572727E54D002986FD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		947C7B582727E54D002986FD /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
-		947C7B592727E54D002986FD /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		947C7B762727F0AF002986FD /* AlbumTracksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksPresenter.swift; sourceTree = "<group>"; };
 		947C7B782727F0AF002986FD /* AlbumTracksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksRouter.swift; sourceTree = "<group>"; };
 		947C7B792727F0AF002986FD /* AlbumTracksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksModels.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				947C7B562727E54D002986FD /* HistoryModels.swift */,
 				947C7B572727E54D002986FD /* HistoryViewController.swift */,
 				947C7B582727E54D002986FD /* HistoryInteractor.swift */,
-				947C7B592727E54D002986FD /* HistoryViewController.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -355,7 +352,6 @@
 				94C15EB72726F23D007490FE /* Main.storyboard in Resources */,
 				94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */,
 				94C15EB42726F23D007490FE /* Assets.xcassets in Resources */,
-				947C7B602727E54D002986FD /* HistoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

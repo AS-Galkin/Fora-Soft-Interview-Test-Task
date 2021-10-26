@@ -10,12 +10,14 @@ import Alamofire
 
 class MainTabBarController: UITabBarController {
     let searchVC = SearchViewController()
+    let historyVC = HistoryViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.backgroundColor = .tabAndNavBarColor
         self.viewControllers = [
-            generateVC(rootViewController: searchVC, title: "Search", image: #imageLiteral(resourceName: "search"))
+            generateVC(rootViewController: searchVC, title: "Search", image: #imageLiteral(resourceName: "search")),
+            generateVC(rootViewController: historyVC, title: "History", image: #imageLiteral(resourceName: "search"))
         ]
         self.tabBar.tintColor = #colorLiteral(red: 0.9369474649, green: 0.3679848909, blue: 0.426604867, alpha: 1)
     }

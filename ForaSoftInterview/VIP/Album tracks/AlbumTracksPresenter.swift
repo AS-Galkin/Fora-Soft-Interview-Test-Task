@@ -19,7 +19,7 @@ class AlbumTracksPresenter: AlbumTracksPresentationLogic {
       switch response {
       case .presentTracks(let response):
           guard let cells = response.results?.map({ track -> TrackViewModel.Track in
-              return TrackViewModel.Track.init()
+              return TrackViewModel.Track.init(trackName: track.trackName, artistName: track.artistName, albumName: track.collectionName)
           }) else { return }
           viewController?.displayData(viewModel: .displayTracks(trackViewModel: TrackViewModel.init(cells: cells)))
           break

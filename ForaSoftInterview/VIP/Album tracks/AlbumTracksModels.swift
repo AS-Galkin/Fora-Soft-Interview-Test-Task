@@ -32,7 +32,9 @@ enum AlbumTracks {
 
 struct TrackViewModel {
     struct Track {
-        
+        var trackName: String?
+        var artistName: String?
+        var albumName: String?
     }
     
     var cells: [Track]

@@ -17,6 +17,8 @@ protocol ItunesModelProtocol: Decodable {
     var artworkUrl60: String? { get set }
     
     var artistName: String? { get set }
+    
+    var collectionName: String? { get set }
 }
 
 struct Album: ItunesModelProtocol {
@@ -49,6 +51,8 @@ struct Track: ItunesModelProtocol {
     var trackName: String?
     
     var artistName: String?
+    
+    var collectionName: String?
 }
 
 struct SearchResponse<T: Decodable>: Decodable {
