@@ -12,6 +12,8 @@
 		94799BCC272700F900E93D75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCB272700F900E93D75 /* MainTabBarController.swift */; };
 		94799BCE2727087900E93D75 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */; };
 		94799BD427273B9700E93D75 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD327273B9700E93D75 /* Extensions.swift */; };
+		94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */; };
+		94799BD92727603200E93D75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */; };
 		94C15EAB2726F23B007490FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EAA2726F23B007490FE /* AppDelegate.swift */; };
 		94C15EAD2726F23B007490FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EAC2726F23B007490FE /* SceneDelegate.swift */; };
 		94C15EB42726F23D007490FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C15EB32726F23D007490FE /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		94799BCB272700F900E93D75 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		94799BD327273B9700E93D75 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		947C06B66B26D044F4598B7B /* Pods_App_TestGroup_ForaSoftInterviewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_TestGroup_ForaSoftInterviewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C15EA72726F23B007490FE /* ForaSoftInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForaSoftInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C15EAA2726F23B007490FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94799BD527275D2800E93D75 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */,
+				94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		94C15E9E2726F23B007490FE = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +143,7 @@
 		94C15EDA2726F263007490FE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				94799BD527275D2800E93D75 /* Cell */,
 				94C15EDC2726F293007490FE /* SearchPresenter.swift */,
 				94C15EDE2726F293007490FE /* SearchRouter.swift */,
 				94C15EDF2726F293007490FE /* SearchModels.swift */,
@@ -279,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C15EB72726F23D007490FE /* Main.storyboard in Resources */,
+				94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */,
 				94C15EB42726F23D007490FE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C15EE62726F293007490FE /* SearchModels.swift in Sources */,
+				94799BD92727603200E93D75 /* AlbumCollectionViewCell.swift in Sources */,
 				94C15EE52726F293007490FE /* SearchRouter.swift in Sources */,
 				94799BCC272700F900E93D75 /* MainTabBarController.swift in Sources */,
 				94C15EE72726F293007490FE /* SearchViewController.swift in Sources */,

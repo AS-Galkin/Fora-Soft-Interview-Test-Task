@@ -18,7 +18,12 @@ class SearchPresenter: SearchPresentationLogic {
     func presentData(response: Search.Model.Response.ResponseType) {
         switch response {
         case .presentAlbums(let response):
-            //print(response)
+            guard let cells = response?.results?.map({ album -> AlbumViewModel.Album in
+                return AlbumViewModel.Album.init(imageUrl: album.artworkUrl100, artistName: album.artistName, albumName: album.collectionName)
+            }) else { return }
+            
+            let viewModel = AlbumViewModel.init(cells: cells)
+            viewController?.displayData(viewModel: .displayAlbums(albumViewModel: viewModel))
             break
         case .presentTracks(let response):
             print(response)

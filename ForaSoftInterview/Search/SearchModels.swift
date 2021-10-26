@@ -34,9 +34,19 @@ enum Search {
 }
 
 struct AlbumViewModel {
+    struct Album {
+        var imageUrl: String?
+        var artistName: String?
+        var albumName: String?
+    }
     
+    var cells: [Album]
 }
 
 struct TrackViewModel {
+    struct Track {
+        
+    }
     
+    var cells: [Track]
 }
