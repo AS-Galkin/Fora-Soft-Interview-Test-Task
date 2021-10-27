@@ -19,11 +19,15 @@ enum Search {
     struct Response {
       enum ResponseType {
           case presentAlbums(responseTerm: SearchResponse<Album>?)
+          case presentActivityIndicator
+          case removeActivityIndicator
       }
     }
     struct ViewModel {
       enum ViewModelData {
           case displayAlbums(albumViewModel: AlbumViewModel)
+          case displayActivityIndicator
+          case hideActivityIndicator
       }
     }
   }

@@ -37,6 +37,10 @@
 		94C15EE82726F293007490FE /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EE12726F293007490FE /* SearchInteractor.swift */; };
 		94C15EEE2726F31B007490FE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EED2726F31B007490FE /* SearchResponse.swift */; };
 		94C15EF02726F327007490FE /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C15EEF2726F327007490FE /* NetworkLayer.swift */; };
+		94FEB40127294C9500E1E503 /* TrackTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB40027294C9500E1E503 /* TrackTableHeaderView.swift */; };
+		94FEB40427296FB500E1E503 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FEB40327296FB500E1E503 /* TrackTableViewCell.xib */; };
+		94FEB40627296FCC00E1E503 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB40527296FCC00E1E503 /* TrackTableViewCell.swift */; };
+		94FEB4092729853600E1E503 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB4082729853600E1E503 /* ActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		94C15EE12726F293007490FE /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		94C15EED2726F31B007490FE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		94C15EEF2726F327007490FE /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		94FEB40027294C9500E1E503 /* TrackTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableHeaderView.swift; sourceTree = "<group>"; };
+		94FEB40327296FB500E1E503 /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
+		94FEB40527296FCC00E1E503 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		94FEB4082729853600E1E503 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		A0F26CD0917F805B60E4C34B /* Pods-App-ForaSoftInterview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ForaSoftInterview.release.xcconfig"; path = "Target Support Files/Pods-App-ForaSoftInterview/Pods-App-ForaSoftInterview.release.xcconfig"; sourceTree = "<group>"; };
 		B7B11EE5B05769CF341B9014 /* Pods_App_ForaSoftInterview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_ForaSoftInterview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +152,8 @@
 		947C7B752727F08F002986FD /* Album tracks */ = {
 			isa = PBXGroup;
 			children = (
+				94FEB40227296F9B00E1E503 /* Cell */,
+				94FEB3FF27294BBC00E1E503 /* View */,
 				947C7B762727F0AF002986FD /* AlbumTracksPresenter.swift */,
 				947C7B782727F0AF002986FD /* AlbumTracksRouter.swift */,
 				947C7B792727F0AF002986FD /* AlbumTracksModels.swift */,
@@ -200,6 +210,7 @@
 		94C15EDA2726F263007490FE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				94FEB4072729851F00E1E503 /* View */,
 				94799BD527275D2800E93D75 /* Cell */,
 				94C15EDC2726F293007490FE /* SearchPresenter.swift */,
 				94C15EDE2726F293007490FE /* SearchRouter.swift */,
@@ -242,6 +253,31 @@
 				94C15EED2726F31B007490FE /* SearchResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		94FEB3FF27294BBC00E1E503 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94FEB40027294C9500E1E503 /* TrackTableHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94FEB40227296F9B00E1E503 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				94FEB40327296FB500E1E503 /* TrackTableViewCell.xib */,
+				94FEB40527296FCC00E1E503 /* TrackTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		94FEB4072729851F00E1E503 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94FEB4082729853600E1E503 /* ActivityView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E081E1632D01DB53F484009A /* Pods */ = {
@@ -352,6 +388,7 @@
 				94C15EB72726F23D007490FE /* Main.storyboard in Resources */,
 				94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */,
 				94C15EB42726F23D007490FE /* Assets.xcassets in Resources */,
+				94FEB40427296FB500E1E503 /* TrackTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +492,7 @@
 				94799BD92727603200E93D75 /* AlbumCollectionViewCell.swift in Sources */,
 				947C7B812727F0AF002986FD /* AlbumTracksViewController.swift in Sources */,
 				947C7B7F2727F0AF002986FD /* AlbumTracksRouter.swift in Sources */,
+				94FEB40627296FCC00E1E503 /* TrackTableViewCell.swift in Sources */,
 				947C7B7D2727F0AF002986FD /* AlbumTracksPresenter.swift in Sources */,
 				94C15EE52726F293007490FE /* SearchRouter.swift in Sources */,
 				947C7B5B2727E54D002986FD /* HistoryWorker.swift in Sources */,
@@ -463,7 +501,9 @@
 				94C15EE82726F293007490FE /* SearchInteractor.swift in Sources */,
 				94C15EF02726F327007490FE /* NetworkLayer.swift in Sources */,
 				94799BCE2727087900E93D75 /* UIViewController + Storyboard.swift in Sources */,
+				94FEB4092729853600E1E503 /* ActivityView.swift in Sources */,
 				947C7B5E2727E54D002986FD /* HistoryViewController.swift in Sources */,
+				94FEB40127294C9500E1E503 /* TrackTableHeaderView.swift in Sources */,
 				94C15EEE2726F31B007490FE /* SearchResponse.swift in Sources */,
 				947C7B5F2727E54D002986FD /* HistoryInteractor.swift in Sources */,
 				947C7B5D2727E54D002986FD /* HistoryModels.swift in Sources */,

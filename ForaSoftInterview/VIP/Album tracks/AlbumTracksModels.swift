@@ -31,10 +31,11 @@ enum AlbumTracks {
 }
 
 struct TrackViewModel {
+    var artistName: String?
+    var albumName: String?
+    var artWork: String?
     struct Track {
         var trackName: String?
-        var artistName: String?
-        var albumName: String?
     }
     
     var cells: [Track]

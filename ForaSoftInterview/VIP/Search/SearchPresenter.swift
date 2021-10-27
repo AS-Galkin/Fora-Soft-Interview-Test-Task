@@ -25,6 +25,10 @@ class SearchPresenter: SearchPresentationLogic {
             let viewModel = AlbumViewModel.init(cells: cells)
             viewController?.displayData(viewModel: .displayAlbums(albumViewModel: viewModel))
             break
+        case .presentActivityIndicator:
+            viewController?.displayData(viewModel: .displayActivityIndicator)
+        case .removeActivityIndicator:
+            viewController?.displayData(viewModel: .hideActivityIndicator)
         @unknown default:
             break
             

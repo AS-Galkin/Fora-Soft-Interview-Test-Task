@@ -17,11 +17,16 @@ class AlbumTracksPresenter: AlbumTracksPresentationLogic {
   
   func presentData(response: AlbumTracks.Model.Response.ResponseType) {
       switch response {
-      case .presentTracks(let response):
-          guard let cells = response.results?.map({ track -> TrackViewModel.Track in
-              return TrackViewModel.Track.init(trackName: track.trackName, artistName: track.artistName, albumName: track.collectionName)
+      case .presentTracks(var response):
+          guard !response.results!.isEmpty else { return }
+          response.results?.removeFirst()
+          
+          guard let cells = response.results?.map({ track in
+              return TrackViewModel.Track.init(trackName: track.trackName)
           }) else { return }
-          viewController?.displayData(viewModel: .displayTracks(trackViewModel: TrackViewModel.init(cells: cells)))
+          
+          let viewModel = TrackViewModel.init(artistName: response.results?.first?.artistName, albumName: response.results?.first?.collectionName, artWork: response.results?.first?.artworkUrl100, cells: cells)
+          viewController?.displayData(viewModel: .displayTracks(trackViewModel: viewModel))
           break
       @unknown default:
           break
