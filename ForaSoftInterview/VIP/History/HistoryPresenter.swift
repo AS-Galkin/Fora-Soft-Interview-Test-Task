@@ -16,7 +16,14 @@ class HistoryPresenter: HistoryPresentationLogic {
   weak var viewController: HistoryDisplayLogic?
   
   func presentData(response: History.Model.Response.ResponseType) {
-  
+
+      switch response {
+      case .presentHistory(let response):
+          viewController?.displayData(viewModel: .displayHistory(HistoryViewModel.init(terms: response)))
+          break
+      @unknown default:
+          break
+      }
   }
   
 }

@@ -21,13 +21,14 @@ class AlbumTracksViewController: UIViewController, AlbumTracksDisplayLogic {
     
     var collectionId: Int?
     
-    var trackTableView: UITableView!
+    var trackTableView: UITableView?
     
-    var trackTableHeaderView: TrackTableHeaderView!
+    var trackTableHeaderView: TrackTableHeaderView?
     
     var trackCellViewModel: TrackViewModel = TrackViewModel(cells: []) {
         didSet {
-            trackTableView.reloadData()
+            guard let table = trackTableView else { return }
+            table.reloadData()
         }
     }
     
@@ -68,17 +69,17 @@ class AlbumTracksViewController: UIViewController, AlbumTracksDisplayLogic {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         trackTableView = generateTableView()
-        self.view.addSubview(trackTableView)
+        
+        guard let table = trackTableView else { return }
+        
+        self.view.addSubview(table)
         if let id = collectionId {
             interactor?.makeRequest(request: .getTracks(lookupTerm: String(id)))
         }
     }
     
     private func generateTableView() -> UITableView {
-        let tableView = UITableView(frame: self.view.frame)
-        let nibName = UINib(nibName: "TrackTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: TrackTableViewCell.reuseId)
-        tableView.backgroundColor = .white
+        let tableView = UITableView(withNib: TrackTableViewCell.self,frame: self.view.frame)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView

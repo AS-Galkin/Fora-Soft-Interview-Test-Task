@@ -15,7 +15,6 @@
 		94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */; };
 		94799BD92727603200E93D75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */; };
 		947C7B5A2727E54D002986FD /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B532727E54D002986FD /* HistoryPresenter.swift */; };
-		947C7B5B2727E54D002986FD /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B542727E54D002986FD /* HistoryWorker.swift */; };
 		947C7B5C2727E54D002986FD /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B552727E54D002986FD /* HistoryRouter.swift */; };
 		947C7B5D2727E54D002986FD /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B562727E54D002986FD /* HistoryModels.swift */; };
 		947C7B5E2727E54D002986FD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C7B572727E54D002986FD /* HistoryViewController.swift */; };
@@ -41,6 +40,7 @@
 		94FEB40427296FB500E1E503 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FEB40327296FB500E1E503 /* TrackTableViewCell.xib */; };
 		94FEB40627296FCC00E1E503 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB40527296FCC00E1E503 /* TrackTableViewCell.swift */; };
 		94FEB4092729853600E1E503 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB4082729853600E1E503 /* ActivityView.swift */; };
+		94FEB40B272AA22100E1E503 /* UserDefaultsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FEB40A272AA22100E1E503 /* UserDefaultsLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		947C06B66B26D044F4598B7B /* Pods_App_TestGroup_ForaSoftInterviewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_TestGroup_ForaSoftInterviewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947C7B532727E54D002986FD /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
-		947C7B542727E54D002986FD /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
 		947C7B552727E54D002986FD /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
 		947C7B562727E54D002986FD /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
 		947C7B572727E54D002986FD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		94FEB40327296FB500E1E503 /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
 		94FEB40527296FCC00E1E503 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		94FEB4082729853600E1E503 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		94FEB40A272AA22100E1E503 /* UserDefaultsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLayer.swift; sourceTree = "<group>"; };
 		A0F26CD0917F805B60E4C34B /* Pods-App-ForaSoftInterview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ForaSoftInterview.release.xcconfig"; path = "Target Support Files/Pods-App-ForaSoftInterview/Pods-App-ForaSoftInterview.release.xcconfig"; sourceTree = "<group>"; };
 		B7B11EE5B05769CF341B9014 /* Pods_App_ForaSoftInterview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_ForaSoftInterview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				947C7B532727E54D002986FD /* HistoryPresenter.swift */,
-				947C7B542727E54D002986FD /* HistoryWorker.swift */,
 				947C7B552727E54D002986FD /* HistoryRouter.swift */,
 				947C7B562727E54D002986FD /* HistoryModels.swift */,
 				947C7B572727E54D002986FD /* HistoryViewController.swift */,
@@ -233,6 +232,7 @@
 			children = (
 				94C15EEC2726F2F8007490FE /* Models */,
 				94C15EEF2726F327007490FE /* NetworkLayer.swift */,
+				94FEB40A272AA22100E1E503 /* UserDefaultsLayer.swift */,
 				94C15EDB2726F26D007490FE /* History */,
 			);
 			path = Services;
@@ -493,9 +493,9 @@
 				947C7B812727F0AF002986FD /* AlbumTracksViewController.swift in Sources */,
 				947C7B7F2727F0AF002986FD /* AlbumTracksRouter.swift in Sources */,
 				94FEB40627296FCC00E1E503 /* TrackTableViewCell.swift in Sources */,
+				94FEB40B272AA22100E1E503 /* UserDefaultsLayer.swift in Sources */,
 				947C7B7D2727F0AF002986FD /* AlbumTracksPresenter.swift in Sources */,
 				94C15EE52726F293007490FE /* SearchRouter.swift in Sources */,
-				947C7B5B2727E54D002986FD /* HistoryWorker.swift in Sources */,
 				94799BCC272700F900E93D75 /* MainTabBarController.swift in Sources */,
 				94C15EE72726F293007490FE /* SearchViewController.swift in Sources */,
 				94C15EE82726F293007490FE /* SearchInteractor.swift in Sources */,

@@ -9,23 +9,27 @@
 import UIKit
 
 enum History {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-        case some
-      }
+    
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case loadHistory
+                case getTracks(searchTerm: String)
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentHistory(response: [String])
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayHistory(HistoryViewModel)
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-        case some
-      }
-    }
-    struct ViewModel {
-      enum ViewModelData {
-        case some
-      }
-    }
-  }
-  
+}
+
+struct HistoryViewModel {
+    var terms: [String]
 }

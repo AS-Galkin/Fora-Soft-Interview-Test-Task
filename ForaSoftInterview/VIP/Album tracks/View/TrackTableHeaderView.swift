@@ -72,12 +72,11 @@ class TrackTableHeaderView: UIView {
     }
     
     private func setupView(imageUrl: String, albumName: String, artistName: String) {
-        if let url = URL(string: imageUrl),
-           let data = try? Data(contentsOf: url),
-           let image = UIImage(data: data) {
-            imageView.image = image
+        do {
+            try imageView.fetchImageFromURL(url: imageUrl)
+        } catch let error as NSError {
+            print("Error \(error.userInfo["DetailMessage"])")
         }
-        
         albumLabel.text = albumName
         artistLabel.text = artistName
         

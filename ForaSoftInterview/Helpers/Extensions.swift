@@ -41,3 +41,20 @@ extension UIImageView {
         }
     }
 }
+
+//
+extension UITableView {
+    convenience init(withNib cell: UITableViewCell.Type, frame: CGRect) {
+        self.init(frame: frame)
+        let nib = UINib(nibName: String(describing: cell), bundle: nil)
+        self.register(nib, forCellReuseIdentifier: String(describing: cell))
+        self.backgroundColor = .white
+    }
+    
+    convenience init(frame: CGRect, cell: UITableViewCell.Type) {
+        self.init(frame: frame)
+        self.register(cell, forCellReuseIdentifier: String(describing: cell))
+        self.backgroundColor = .white
+    }
+}
+

@@ -8,14 +8,19 @@
 
 import UIKit
 
-protocol HistoryRoutingLogic {
-
+protocol HistoryRoutingLogic: AnyObject {
+    func routeToSearchViewController(searchTerm: String)
 }
 
 class HistoryRouter: NSObject, HistoryRoutingLogic {
-
-  weak var viewController: HistoryViewController?
-  
-  // MARK: Routing
-  
+    
+    weak var viewController: HistoryViewController?
+    weak var searchDelegate: SearchRoutingLogic?
+    
+    // MARK: Routing
+    
+    func routeToSearchViewController(searchTerm: String) {
+        viewController?.tabBarController?.selectedIndex = 0
+        searchDelegate?.routeFromHistoryViewController(searchTerm: searchTerm)
+    }
 }

@@ -14,12 +14,19 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDelegate()
         self.tabBar.backgroundColor = .tabAndNavBarColor
         self.viewControllers = [
             generateVC(rootViewController: searchVC, title: "Search", image: #imageLiteral(resourceName: "search")),
             generateVC(rootViewController: historyVC, title: "History", image: #imageLiteral(resourceName: "history"))
         ]
         self.tabBar.tintColor = #colorLiteral(red: 0.9369474649, green: 0.3679848909, blue: 0.426604867, alpha: 1)
+    }
+    
+    private func setupDelegate() {
+        if let historyRouter = historyVC.router as? HistoryRouter {
+            historyRouter.searchDelegate = searchVC.router.self
+        }
     }
     
     private func generateVC(rootViewController: UIViewController, title: String, image: UIImage) -> UINavigationController {

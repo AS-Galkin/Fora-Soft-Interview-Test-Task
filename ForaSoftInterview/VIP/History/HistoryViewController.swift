@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol HistoryDisplayLogic: AnyObject {
     func displayData(viewModel: History.Model.ViewModel.ViewModelData)
@@ -14,7 +15,17 @@ protocol HistoryDisplayLogic: AnyObject {
 
 class HistoryViewController: UIViewController, HistoryDisplayLogic {
     
+    var historyTableView: UITableView?
+    
+    var historyViewModel: HistoryViewModel = HistoryViewModel(terms: []) {
+        didSet {
+            guard let table = historyTableView else { return }
+            table.reloadData()
+        }
+    }
+    
     var interactor: HistoryBusinessLogic?
+    
     var router: (NSObjectProtocol & HistoryRoutingLogic)?
     
     // MARK: Object lifecycle
@@ -44,18 +55,53 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         router.viewController     = viewController
     }
     
-    // MARK: Routing
-    
-    
-    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        historyTableView = generateTableView()
+        interactor?.makeRequest(request: .loadHistory)
+        if historyTableView != nil {
+            view.addSubview(historyTableView!)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        interactor?.makeRequest(request: .loadHistory)
     }
     
     func displayData(viewModel: History.Model.ViewModel.ViewModelData) {
-        
+        switch viewModel {
+        case .displayHistory(let history):
+            self.historyViewModel = history
+            break
+        @unknown default:
+            break
+        }
     }
     
+    private func generateTableView() -> UITableView {
+        let tableView = UITableView(frame: self.view.frame, cell: UITableViewCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }
+}
+
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyViewModel.terms.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+        cell.textLabel?.text = historyViewModel.terms[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToSearchViewController(searchTerm: historyViewModel.terms[indexPath.row])
+    }
 }

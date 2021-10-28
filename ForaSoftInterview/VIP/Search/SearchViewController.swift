@@ -21,6 +21,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     var timer: Timer?
     
+    var searchController: UISearchController?
+    
     var albumCollectionView: UICollectionView!
     
     let activityView: ActivityView = ActivityView(frame: UIScreen.main.bounds)
@@ -98,10 +100,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     }
     
     private func setupNavItemSearchVC() {
-        let search = UISearchController()
-        search.searchBar.delegate = self
-        search.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = search
+        searchController = UISearchController()
+        searchController?.searchBar.delegate = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
     }
     
@@ -154,7 +156,11 @@ extension SearchViewController: UISearchBarDelegate {
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] _ in
-            self?.interactor?.makeRequest(request: .getAlbums(searchTerm: searchText))
+            
+            if !searchText.isEmpty {
+                self?.interactor?.makeRequest(request: .saveTerm(searchTerm: searchText))
+                self?.interactor?.makeRequest(request: .getAlbums(searchTerm: searchText))
+            }
         })
     }
 }

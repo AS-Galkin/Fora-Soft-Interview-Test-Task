@@ -28,9 +28,15 @@ class SearchInteractor: SearchBusinessLogic {
                     self?.presenter?.presentData(response: .removeActivityIndicator)
                 }
             })
+        case .saveTerm(let searchTerm):
+            saveSearch(for: searchTerm, saver: UserDefaultsLayer.shared)
+            break
         @unknown default:
             break
         }
     }
     
+    private func saveSearch(for query: String, saver: HistoryDataProtocol) {
+        saver.saveQuery(for: query)
+    }
 }

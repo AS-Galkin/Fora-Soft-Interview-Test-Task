@@ -7,20 +7,30 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol HistoryBusinessLogic {
-  func makeRequest(request: History.Model.Request.RequestType)
+    func makeRequest(request: History.Model.Request.RequestType)
 }
 
 class HistoryInteractor: HistoryBusinessLogic {
-
-  var presenter: HistoryPresentationLogic?
-  var service: HistoryService?
-  
-  func makeRequest(request: History.Model.Request.RequestType) {
-    if service == nil {
-      service = HistoryService()
+    
+    var presenter: HistoryPresentationLogic?
+    let network: NetworkLayer = NetworkLayer()
+    
+    func makeRequest(request: History.Model.Request.RequestType) {
+        switch request {
+        case .loadHistory:
+            loadHistory(loader: UserDefaultsLayer.shared) { [weak self] history in
+                self?.presenter?.presentData(response: .presentHistory(response: history))
+            }
+            break
+        @unknown default:
+            break
+        }
     }
-  }
-  
+    
+    private func loadHistory(loader: HistoryDataProtocol, closure: @escaping ([String]) -> Void) {
+        loader.loadHistory(closure: closure)
+    }
 }

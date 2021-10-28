@@ -14,6 +14,7 @@ enum Search {
     struct Request {
       enum RequestType {
           case getAlbums(searchTerm: String)
+          case saveTerm(searchTerm: String)
       }
     }
     struct Response {
