@@ -14,7 +14,7 @@ enum History {
         struct Request {
             enum RequestType {
                 case loadHistory
-                case getTracks(searchTerm: String)
+                case saveNewHistory(history: HistoryViewModel)
             }
         }
         struct Response {

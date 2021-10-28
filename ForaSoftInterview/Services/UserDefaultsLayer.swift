@@ -10,6 +10,7 @@ import Foundation
 protocol HistoryDataProtocol {
     func saveQuery(for object: String)
     func loadHistory(closure: @escaping ([String]) -> Void)
+    func saveNewHistory(history: [String])
 }
 
 class UserDefaultsLayer: HistoryDataProtocol {
@@ -55,6 +56,14 @@ class UserDefaultsLayer: HistoryDataProtocol {
             } else {
                 self?.defaults.set([object], forKey: key)
             }
+        }
+    }
+    
+    func saveNewHistory(history: [String]) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let key = self?.codingKey else { return }
+            self?.defaults.removeObject(forKey: key)
+            self?.defaults.set(history, forKey: key)
         }
     }
     

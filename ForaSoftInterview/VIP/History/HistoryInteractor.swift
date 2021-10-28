@@ -25,6 +25,9 @@ class HistoryInteractor: HistoryBusinessLogic {
                 self?.presenter?.presentData(response: .presentHistory(response: history))
             }
             break
+        case .saveNewHistory(history: let history):
+            UserDefaultsLayer.shared.saveNewHistory(history: history.terms)
+            break
         @unknown default:
             break
         }

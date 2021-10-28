@@ -17,12 +17,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     
     var historyTableView: UITableView?
     
-    var historyViewModel: HistoryViewModel = HistoryViewModel(terms: []) {
-        didSet {
-            guard let table = historyTableView else { return }
-            table.reloadData()
-        }
-    }
+    var historyViewModel: HistoryViewModel = HistoryViewModel(terms: [])
     
     var interactor: HistoryBusinessLogic?
     
@@ -76,6 +71,8 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
         switch viewModel {
         case .displayHistory(let history):
             self.historyViewModel = history
+            guard let table = historyTableView else { return }
+            table.reloadData()
             break
         @unknown default:
             break
@@ -103,5 +100,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router?.routeToSearchViewController(searchTerm: historyViewModel.terms[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            historyViewModel.terms.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            interactor?.makeRequest(request: .saveNewHistory(history: historyViewModel))
+        }
     }
 }
