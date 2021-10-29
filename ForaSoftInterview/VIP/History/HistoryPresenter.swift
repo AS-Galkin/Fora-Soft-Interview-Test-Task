@@ -15,10 +15,15 @@ protocol HistoryPresentationLogic {
 class HistoryPresenter: HistoryPresentationLogic {
   weak var viewController: HistoryDisplayLogic?
   
+    //MARK: - Preparation data for displaying
+    /**
+     Prepare data reached from interactor and send it to ViewController. Present making depending on *ResponseType*.
+     */
   func presentData(response: History.Model.Response.ResponseType) {
-
       switch response {
-      case .presentHistory(let response):
+          /// Prepare and send data to viewController
+      case .prepareHistory(let response):
+          /// Send prepared data
           viewController?.displayData(viewModel: .displayHistory(HistoryViewModel.init(terms: response)))
           break
       @unknown default:

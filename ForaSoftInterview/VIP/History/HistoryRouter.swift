@@ -12,13 +12,18 @@ protocol HistoryRoutingLogic: AnyObject {
     func routeToSearchViewController(searchTerm: String)
 }
 
+/*
+ # Class that routing between Controllers.
+ */
 class HistoryRouter: NSObject, HistoryRoutingLogic {
     
     weak var viewController: HistoryViewController?
     weak var searchDelegate: SearchRoutingLogic?
     
-    // MARK: Routing
-    
+    // MARK: - Routing
+    /**
+     Route to SearchViewController and send him Searched Data
+     */
     func routeToSearchViewController(searchTerm: String) {
         viewController?.tabBarController?.selectedIndex = 0
         searchDelegate?.routeFromHistoryViewController(searchTerm: searchTerm)

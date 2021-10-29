@@ -13,18 +13,31 @@ protocol HistoryBusinessLogic {
     func makeRequest(request: History.Model.Request.RequestType)
 }
 
+/*
+ # Controller that interact with external services.
+ */
 class HistoryInteractor: HistoryBusinessLogic {
-    
+    //MARK: - Variables
+    /// Controller for preapring Data to displaying
     var presenter: HistoryPresentationLogic?
+    
     let network: NetworkLayer = NetworkLayer()
     
+    //MARK: - Making Request
+    /**
+     Making request depending on the *RequestType*.
+     */
     func makeRequest(request: History.Model.Request.RequestType) {
         switch request {
+            /// Geting history from UserDefaults.
         case .loadHistory:
+            /// Loading history
             loadHistory(loader: UserDefaultsLayer.shared) { [weak self] history in
-                self?.presenter?.presentData(response: .presentHistory(response: history))
+                /// Says *Presenter* to prepare data from UserDefaults.
+                self?.presenter?.presentData(response: .prepareHistory(response: history))
             }
             break
+            /// Saving history to userDefaults.
         case .saveNewHistory(history: let history):
             UserDefaultsLayer.shared.saveNewHistory(history: history.terms)
             break
@@ -33,6 +46,9 @@ class HistoryInteractor: HistoryBusinessLogic {
         }
     }
     
+    /**
+     Loading history from UserDefaults.
+     */
     private func loadHistory(loader: HistoryDataProtocol, closure: @escaping ([String]) -> Void) {
         loader.loadHistory(closure: closure)
     }

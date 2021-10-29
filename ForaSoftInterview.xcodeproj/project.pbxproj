@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		490DD12DC81ADDE9EEAC4FF3 /* Pods_App_ForaSoftInterview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B11EE5B05769CF341B9014 /* Pods_App_ForaSoftInterview.framework */; };
 		68A0D293B26B1E40C7A07B88 /* Pods_App_TestGroup_ForaSoftInterviewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947C06B66B26D044F4598B7B /* Pods_App_TestGroup_ForaSoftInterviewTests.framework */; };
+		9430586E272C2BBD00B7217E /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430586D272C2BBD00B7217E /* ExtensionTests.swift */; };
+		94305870272C2C0200B7217E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430586F272C2C0200B7217E /* NetworkServiceTests.swift */; };
+		94529509272C19C8004BA854 /* UserDefaultsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94529508272C19C8004BA854 /* UserDefaultsServiceTests.swift */; };
 		94799BCC272700F900E93D75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCB272700F900E93D75 /* MainTabBarController.swift */; };
-		94799BCE2727087900E93D75 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */; };
 		94799BD427273B9700E93D75 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD327273B9700E93D75 /* Extensions.swift */; };
 		94799BD727275D5400E93D75 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */; };
 		94799BD92727603200E93D75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */; };
@@ -57,8 +59,10 @@
 		506A0F727D7848E2139526EE /* Pods-App-ForaSoftInterview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ForaSoftInterview.debug.xcconfig"; path = "Target Support Files/Pods-App-ForaSoftInterview/Pods-App-ForaSoftInterview.debug.xcconfig"; sourceTree = "<group>"; };
 		8B0D925E010390B1175F05E5 /* Pods-App-TestGroup-ForaSoftInterviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-TestGroup-ForaSoftInterviewTests.release.xcconfig"; path = "Target Support Files/Pods-App-TestGroup-ForaSoftInterviewTests/Pods-App-TestGroup-ForaSoftInterviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E530D76D746943CE3FD9BBE /* Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig"; path = "Target Support Files/Pods-App-TestGroup-ForaSoftInterviewTests/Pods-App-TestGroup-ForaSoftInterviewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9430586D272C2BBD00B7217E /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		9430586F272C2C0200B7217E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		94529508272C19C8004BA854 /* UserDefaultsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceTests.swift; sourceTree = "<group>"; };
 		94799BCB272700F900E93D75 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		94799BD327273B9700E93D75 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		94799BD627275D5400E93D75 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		94799BD82727603200E93D75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +121,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94529504272C183D004BA854 /* Services Tests */ = {
+			isa = PBXGroup;
+			children = (
+				94529508272C19C8004BA854 /* UserDefaultsServiceTests.swift */,
+				9430586F272C2C0200B7217E /* NetworkServiceTests.swift */,
+			);
+			path = "Services Tests";
+			sourceTree = "<group>";
+		};
+		94529505272C184C004BA854 /* Extensions Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9430586D272C2BBD00B7217E /* ExtensionTests.swift */,
+			);
+			path = "Extensions Tests";
+			sourceTree = "<group>";
+		};
 		94799BD527275D2800E93D75 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +222,8 @@
 		94C15EC02726F23D007490FE /* ForaSoftInterviewTests */ = {
 			isa = PBXGroup;
 			children = (
+				94529505272C184C004BA854 /* Extensions Tests */,
+				94529504272C183D004BA854 /* Services Tests */,
 				94C15EC12726F23D007490FE /* ForaSoftInterviewTests.swift */,
 			);
 			path = ForaSoftInterviewTests;
@@ -220,20 +243,12 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		94C15EDB2726F26D007490FE /* History */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = History;
-			sourceTree = "<group>";
-		};
 		94C15EEA2726F2D8007490FE /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				94C15EEC2726F2F8007490FE /* Models */,
 				94C15EEF2726F327007490FE /* NetworkLayer.swift */,
 				94FEB40A272AA22100E1E503 /* UserDefaultsLayer.swift */,
-				94C15EDB2726F26D007490FE /* History */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,7 +256,6 @@
 		94C15EEB2726F2E1007490FE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				94799BCD2727087900E93D75 /* UIViewController + Storyboard.swift */,
 				94799BD327273B9700E93D75 /* Extensions.swift */,
 			);
 			path = Helpers;
@@ -500,7 +514,6 @@
 				94C15EE72726F293007490FE /* SearchViewController.swift in Sources */,
 				94C15EE82726F293007490FE /* SearchInteractor.swift in Sources */,
 				94C15EF02726F327007490FE /* NetworkLayer.swift in Sources */,
-				94799BCE2727087900E93D75 /* UIViewController + Storyboard.swift in Sources */,
 				94FEB4092729853600E1E503 /* ActivityView.swift in Sources */,
 				947C7B5E2727E54D002986FD /* HistoryViewController.swift in Sources */,
 				94FEB40127294C9500E1E503 /* TrackTableHeaderView.swift in Sources */,
@@ -521,7 +534,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9430586E272C2BBD00B7217E /* ExtensionTests.swift in Sources */,
 				94C15EC22726F23D007490FE /* ForaSoftInterviewTests.swift in Sources */,
+				94305870272C2C0200B7217E /* NetworkServiceTests.swift in Sources */,
+				94529509272C19C8004BA854 /* UserDefaultsServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +754,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlexanderGalkin.ForaSoftInterviewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -764,6 +781,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlexanderGalkin.ForaSoftInterviewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

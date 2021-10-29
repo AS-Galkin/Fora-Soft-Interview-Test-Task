@@ -19,7 +19,7 @@ enum Search {
     }
     struct Response {
       enum ResponseType {
-          case presentAlbums(responseTerm: SearchResponse<Album>?)
+          case prepareResponse(responseTerm: SearchResponse<Album>?)
           case presentActivityIndicator
           case removeActivityIndicator
       }

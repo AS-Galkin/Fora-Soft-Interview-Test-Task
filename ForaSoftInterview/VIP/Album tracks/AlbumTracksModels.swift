@@ -18,7 +18,7 @@ enum AlbumTracks {
     }
     struct Response {
       enum ResponseType {
-          case presentTracks(response: SearchResponse<Track>)
+          case prepareTracks(response: SearchResponse<Track>)
       }
     }
     struct ViewModel {

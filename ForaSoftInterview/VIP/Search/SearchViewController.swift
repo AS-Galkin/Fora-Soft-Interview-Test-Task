@@ -12,34 +12,40 @@ protocol SearchDisplayLogic: AnyObject {
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
 
+/*
+ # Controller that displays Searched albums
+ */
+
 class SearchViewController: UIViewController, SearchDisplayLogic {
     
     //MARK: - Variabels
+    /// Interactor that interact with external services.
     var interactor: SearchBusinessLogic?
-    
+    /// Routing between Screens, controllers, etc.
     var router: (NSObjectProtocol & SearchRoutingLogic)?
-    
+    /// Timer for delay of search
     var timer: Timer?
-    
+    /// controller for searching
     var searchController: UISearchController?
-    
+    /// view for demostrate searched albums
     var albumCollectionView: UICollectionView!
-    
+    /// view that indicate loading process
     let activityView: ActivityView = ActivityView(frame: UIScreen.main.bounds)
-    
+    /// internal object to store Albums
     private var albumCellViewModel: AlbumViewModel = AlbumViewModel(cells: []) {
+        /// Reloading CollectionView when set new data
         didSet {
             albumCollectionView.reloadData()
         }
     }
-    
+    /// Edges for CollectionLayout
     let sectionInsets = UIEdgeInsets(top: 16.0, left: 17.0, bottom: 20.0, right: 17.0)
-    
+    /// How many items will in row
     let itemsPerRow = 2.0
-    
+    /// spacing between cells
     let minimalSpacing = 15.0
     
-    // MARK: Object lifecycle
+    // MARK: - Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,8 +57,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         setup()
     }
     
-    // MARK: Setup
-    
+    // MARK: - Setup
+    /// Setup VIP circle
     private func setup() {
         let viewController        = self
         let interactor            = SearchInteractor()
@@ -65,7 +71,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         router.viewController     = viewController
     }
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     
     override func loadView() {
         super.loadView()
@@ -77,19 +83,25 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         albumCollectionView = generateCollectionView()
         self.view.addSubview(albumCollectionView)
         self.view.addSubview(activityView)
-        setupNavItemSearchVC()
+        setupSearchViewController()
     }
     
     //MARK: - Displaying data
+    /**
+     Displaying viewing content depending on the *ViewModelData*.
+     */
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
         switch viewModel {
+            /// Displaying albums when they loaded
         case .displayAlbums(let result):
             albumCellViewModel = result
             break
+            /// Displaying Loading Indicator while Albums loading
         case .displayActivityIndicator:
             activityView.showActivity()
             activityView.isHidden = false
             break
+            /// Hide Loading Indicator when Albums loaded
         case .hideActivityIndicator:
             activityView.hideActivity()
             activityView.isHidden = true
@@ -99,14 +111,22 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         }
     }
     
-    private func setupNavItemSearchVC() {
+    //MARK: - Other methods
+    /**
+     Setup searchViewController as part of NavigationBar.
+     */
+    private func setupSearchViewController() {
         searchController = UISearchController()
+        /// Set self as delegate of searchBar
         searchController?.searchBar.delegate = self
         searchController?.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
     }
     
+    /**
+     Generate CollectionView with layout and xib of AlbumCollectionViewCell.
+     */
     private func generateCollectionView() -> UICollectionView {
         let collection = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
         collection.register(AlbumCollectionViewCell.nib, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
@@ -120,11 +140,11 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+    /// How manu cell show
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumCellViewModel.cells.count
     }
-    
+    /// Fill up fields of cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.reuseId, for: indexPath) as! AlbumCollectionViewCell
         
@@ -143,20 +163,24 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     //MARK: - Routing
+    /// Subway by selectin cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /// Route to ViewController with tracks of selected album.
         if let id = albumCellViewModel.cells[indexPath.row].albumId {
-            router?.routeToDetailViewController(idCollection: id)
+            router?.routeToTracksViewController(idCollection: id)
         }
     }
 }
 
 //MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
+    /// Get input text from searchBar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        ///reset timer
         timer?.invalidate()
         
+        /// send data from search to interactor afte 1 second delay.
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] _ in
-            
             if !searchText.isEmpty {
                 self?.interactor?.makeRequest(request: .saveTerm(searchTerm: searchText))
                 self?.interactor?.makeRequest(request: .getAlbums(searchTerm: searchText))
@@ -167,15 +191,20 @@ extension SearchViewController: UISearchBarDelegate {
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    /// Size for each item in CollectionViewLayout
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        /// Calculate summary padding of all edges
         let padding = sectionInsets.left + sectionInsets.right + CGFloat(minimalSpacing * (itemsPerRow - 1))
+        /// calculate free screen space with taking *padding*
         let availableWidth = collectionView.bounds.width - padding
+        /// calculate size of each cell item
         let widthPerItem = Double(availableWidth) / itemsPerRow
         return CGSize(width: widthPerItem, height: widthPerItem + 50)
     }
-        
+    /// Minimal spacing between
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -199,6 +228,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UIKit+SwiftUI+Canvas
 import SwiftUI
 
+/// Struct for usng Canvas ig project.
 struct ViewControllerProvider: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)

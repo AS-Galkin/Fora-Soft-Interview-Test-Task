@@ -19,7 +19,7 @@ enum History {
         }
         struct Response {
             enum ResponseType {
-                case presentHistory(response: [String])
+                case prepareHistory(response: [String])
             }
         }
         struct ViewModel {
