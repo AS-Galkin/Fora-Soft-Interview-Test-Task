@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode12.5
+xcode_workspace: ForaSoftInterview.xcworkspace
+xcode_scheme: ForaSoftInterview
+xcode_destination: platform=iOS Simulator,OS=14.5,name=iPhone 12 mini
+before_install:
+- gem update cocoapods
+- pod install
